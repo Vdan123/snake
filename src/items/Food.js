@@ -3,9 +3,9 @@ import * as Matter from 'matter-js';
 export class Food {
     constructor(config) {
         this.config = config;
-        this.size = config.gridSize; // 使用网格大小
+        this.size = config.gridSize;
         this.position = this.getRandomPosition();
-        this.type = '💩';  // 使用粑粑 emoji
+        this.type = Math.random() < 0.2 ? '💣' : '💩';  // 20% 概率生成炸弹
         
         // 创建物理体
         this.body = Matter.Bodies.circle(
@@ -37,6 +37,7 @@ export class Food {
     respawn() {
         const newPos = this.getRandomPosition();
         this.position = newPos;
+        this.type = Math.random() < 0.2 ? '💣' : '💩';  // 重生时重新随机类型
         
         // 更新物理体位置
         Matter.Body.setPosition(this.body, {
@@ -56,4 +57,4 @@ export class Food {
         this.position.x = this.body.position.x - this.size/2;
         this.position.y = this.body.position.y - this.size/2;
     }
-} 
+}

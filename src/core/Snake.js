@@ -8,6 +8,8 @@ export class Snake {
         
         this.init(config.initialSnakeLength);
         this.moveTimer = 0;
+        this.isBlinking = false;
+        this.blinkCount = 0;
     }
     
     init(length) {
@@ -73,4 +75,26 @@ export class Snake {
         this.segments.unshift(head);
         this.segments.pop();
     }
-} 
+    
+    shrink() {
+        if (this.segments.length > 1) {
+            this.segments.pop();
+            this.startBlinking();
+        }
+    }
+    
+    startBlinking() {
+        this.isBlinking = true;
+        this.blinkCount = 0;
+    }
+    
+    updateBlinking() {
+        if (this.isBlinking) {
+            this.blinkCount++;
+            if (this.blinkCount > 20) {  // 闪烁持续10帧
+                this.isBlinking = false;
+                this.blinkCount = 0;
+            }
+        }
+    }
+}
