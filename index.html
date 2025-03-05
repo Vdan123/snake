@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>趣味贪吃蛇</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div class="text-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8">趣味贪吃蛇</h1>
+        
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+            <div id="gameContainer" class="relative">
+                <canvas id="gameCanvas" class="border-2 border-snake-green rounded-lg"></canvas>
+                
+                <div class="mt-4 flex justify-between items-center">
+                    <div id="score" class="text-2xl text-gray-700">分数: 0</div>
+                    <button id="startButton" class="game-button">
+                        开始游戏
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 text-gray-600">
+            <p>使用方向键控制蛇的移动</p>
+            <p class="mt-2">吃到食物 🍎 可以增加分数</p>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html> 
